@@ -11,36 +11,28 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-function Ficha() {
+function Ficha({animal,atribute,imageUrl,imageSize,description}) {
   const [count, setCount] = useState(0)
- 
   function handleClick(){
     setCount(count+1)
   }
 /*a*/
   return (
     <Stack
-
-  direction={{xs:"column", sm:"row"}}
-  spacing={2}
+  direction={{xs:"column", sm:"block"}}
   sx={{
     justifyContent: "center",
     alignItems: "center",
   }}
->
-      
-      <Avatar sx={{width: '100`px', height: '100px'}}className='foto' src='../gato.avif' alt='imagen'></Avatar> 
+> 
+      <Typography>Soy un {animal} feroz</Typography>
+      <Avatar alt="Remy Sharp" src={imageUrl} sx={{ width: imageSize, height: imageSize }}/>
       <Button onClick={handleClick}>Me has hecho  {count} rascaditas </Button> 
-      
-      <Button variant='contained'>variante Contained</Button>
-      <Button variant='outlined' disabled>variante Outlined</Button>
-      <Button variant='text' size='large'>Contained y Large Text</Button>
-      <Button sx={{color: 'black', backgroundColor: 'white'}}> Letra naranja </Button>
-      <Button sx={{color: 'orange', backgroundColor: 'black'}}> Letra naranja y fondo blanco</Button>
-      <Typography variant='h2'> LALALALLA </Typography>
-      { <Typography variant='string'> LALALALLA </Typography>}
+      <Typography> {description}</Typography>
     </Stack>
   )
+
+
 }
 
 
