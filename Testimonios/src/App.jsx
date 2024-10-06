@@ -5,6 +5,7 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 
 function App() {
+  {/*Aqui ponemos el array de los datos del objeto que tenemos en Testimonio */}
   const person = [{
     id: 0,
     imageUrl: '/isa.jpg',
@@ -33,6 +34,7 @@ function App() {
    
   return (
     <>
+    {/*Aquí es donde recorremos el array */}
      <List>
  {person.map((eachPerson) => (
  <ListItem key={eachPerson.id}>

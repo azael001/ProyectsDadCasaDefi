@@ -6,13 +6,18 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import { IconButton } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import Button from '@mui/material/Button';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
 import { useState } from 'react';
 
 function Testimonio({imageUrl,name,job,description}) {
-  
-/*a*/
+  const [liked, setLiked] = useState(false);
+  const handleClick = () => {
+      setLiked(!liked);
+    };
+
   return (
     <Stack
   direction={{xs:"column", sm:"block"}}
@@ -21,12 +26,15 @@ function Testimonio({imageUrl,name,job,description}) {
     alignItems: "center",
   }}
 >   
+{/* Lo ponemos todo dentro de una prop card */}
   <Card sx={{ maxWidth: 450 }} >
+    {/* Aquí ponemos la imagen*/}
       <CardMedia
         sx={{ height: 270 , width:450 }}
         image={imageUrl}
         title={name}
       />
+      {/*Aquí el resto del contenido */}
       <CardContent  >
         <Typography gutterBottom variant="h6" component="div"  sx={{textAlign: 'center'}}>
           {name}
@@ -38,7 +46,15 @@ function Testimonio({imageUrl,name,job,description}) {
           {description}
         </Typography>
       </CardContent>
+       {/*Por último aquí el emoticono de corazon */}
       <CardActions>
+      <IconButton onClick={handleClick}>
+      {liked ? (
+        <FavoriteIcon style={{ color: 'red' }} />
+      ) : (
+        <FavoriteBorderIcon />
+      )}
+    </IconButton>
       </CardActions>
     </Card>
 
